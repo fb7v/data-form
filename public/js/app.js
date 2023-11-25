@@ -1,5 +1,5 @@
 // Funkcija resetRow(row)
-// atgriež rindu row uz sākotnējām vērtībām
+// atgriež rindu row sākotnējā stāvoklī
 function resetRow(row) {
     row.removeClass('editing new-row');
     row.find('td').attr('contenteditable', 'false');
@@ -25,20 +25,6 @@ function getRowValues(row) {
 function setRowValues(row, values) {
     row.find('td').each(function(index) {
         $(this).text(values[index]);
-    });
-}
-// Funkcija refreshTable
-// atjauno tabulu
-function refreshTable() {
-    $.ajax({
-        url: '/get-updated-table',
-        type: 'GET',
-        success: function(response) {
-            $('#books-table').html(response);
-        },
-        error: function(error) {
-            console.error(error);
-        }
     });
 }
 // Funkcija switchRow(row)

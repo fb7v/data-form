@@ -66,13 +66,12 @@
 
 
         var editedData = {
-            // Datus apstrādā pārvēršot neatļautus simbolus ar encodeURIComponent
             _token: '{{ csrf_token() }}',
             title: row.find('td:eq(0)').text(),
             author: row.find('td:eq(1)').text(),
             genre: row.find('td:eq(2)').text(),
-            price: row.find('td:eq(3)').text().replace(/[^\d.]/g, ''),
-            publish_date: row.find('td:eq(4)').text().replace(/[^\d-]/g, ''),
+            price: row.find('td:eq(3)').text(),
+            publish_date: row.find('td:eq(4)').text(),
             description: row.find('td:eq(5)').text(),
         };
 
@@ -84,7 +83,9 @@
                 console.log(response);
                 // Atjauno datus pēc veiksmīgas ielādes
                 resetRow(row);
-                refreshTable();
+                row.find('td').each(function(index) {
+                    $(this).text(editedData[Object.keys(editedData)[index + 1]]);
+                });
             },
             error: function(error) {
                 console.error(error);
