@@ -17,12 +17,12 @@
         <tbody>
             @foreach($books as $book)
                 <tr class="editable-content" data-id="{{ $book->id }}">
-                    <td contenteditable="false"><span>{{ $book->title }}</span></td>
-                    <td contenteditable="false"><span>{{ $book->author }}</span></td>
-                    <td contenteditable="false"><span>{{ $book->genre }}</span></td>
-                    <td contenteditable="false"><span>{{ $book->price }}</span></td>
-                    <td contenteditable="false"><span>{{ $book->publish_date }}</span></td>
-                    <td contenteditable="false"><span>{{ $book->description }}</span></td>
+                    <td><span contenteditable="false">{{ $book->title }}</span></td>
+                    <td><span contenteditable="false">{{ $book->author }}</span></td>
+                    <td><span contenteditable="false">{{ $book->genre }}</span></td>
+                    <td><span contenteditable="false">{{ $book->price }}</span></td>
+                    <td><span contenteditable="false">{{ $book->publish_date }}</span></td>
+                    <td><span contenteditable="false">{{ $book->description }}</span></td>
                     <td contenteditable="false">
                         <button class="edit-btn">Edit</button>
                         <button class="save-btn" style="display:none;">Save</button>
@@ -30,12 +30,12 @@
                 </tr>
             @endforeach
             <tr class="new-row" style="display: none;">
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td><span></span></td>
+                    <td><span contenteditable="true"></span></td>
+                    <td><span contenteditable="true"></span></td>
+                    <td><span contenteditable="true"></span></td>
+                    <td><span contenteditable="true"></span></td>
+                    <td><span contenteditable="true"></span></td>
+                    <td><span contenteditable="true"></span></td>
             <td contenteditable="false">
                 <button class="edit-btn">Edit</button>
                 <button class="save-btn" style="display:none;">Save</button>

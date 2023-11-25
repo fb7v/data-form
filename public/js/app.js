@@ -2,7 +2,7 @@
 // atgriež rindu row sākotnējā stāvoklī
 function resetRow(row) {
     row.removeClass('editing new-row');
-    row.find('td').attr('contenteditable', 'false');
+    row.find('span').attr('contenteditable', 'false');
     row.find('.save-btn').hide();
     row.find('.edit-btn').show();
 
@@ -41,7 +41,7 @@ function switchRow(row) {
 
     if (row.hasClass('new-row')) {
         row.show();
-        row.find('td').attr('contenteditable', 'true');
+        row.find('span').attr('contenteditable', 'true');
         row.find('.new-btn').hide();
         row.find('.edit-btn').hide();
         row.find('.save-btn').show();
@@ -49,7 +49,7 @@ function switchRow(row) {
     } else {
         row.addClass('editing');
         row.data('initial-values', getRowValues(row));
-        row.find('td').attr('contenteditable', 'true');
+        row.find('span').attr('contenteditable', 'true');
         row.find('.edit-btn').hide();
         row.find('.save-btn').show();
     }
