@@ -14,17 +14,17 @@ function resetRow(row) {
 // iegūst rindas row vērtības
 function getRowValues(row) {
     var values = [];
-    row.find('td:not(:last-child):not(:last-child)').each(function() {
-    values.push($(this).text());
-});
+    row.find('span').each(function(index) {
+        values['td' + index] = $(this).text();
+    });
     return values;
 }
 
 // Funkcija setRowValues(row, values)
 // uzstāda rindas row vērtības value
 function setRowValues(row, values) {
-    row.find('td').each(function(index) {
-        $(this).text(values[index]);
+    row.find('td:not(:last-child):not(:last-child)').each(function(index) {
+        $(this).find('span').text(values[index]);
     });
 }
 // Funkcija switchRow(row)

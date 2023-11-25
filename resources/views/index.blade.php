@@ -82,10 +82,9 @@
             success: function(response) {
                 console.log(response);
                 // Atjauno datus pēc veiksmīgas ielādes
+                var editedData = response.editedData;
                 resetRow(row);
-                row.find('td').each(function(index) {
-                    $(this).text(editedData[Object.keys(editedData)[index + 1]]);
-                });
+                setRowValues(row, editedData);
             },
             error: function(error) {
                 console.error(error);
