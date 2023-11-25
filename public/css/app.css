@@ -38,28 +38,15 @@ td:nth-child(7) {
     text-align: center;
 }
 
-.editing {
-    background-color: #FFC4C3;
-}
-
+.editing,
 .new-row {
     background-color: #FFC4C3;
     text-align: left;
 }
 
-.new-row td {
-    position: relative;
-}
-
-.editing td span {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding-left: 0px;
-    display: block;
-    min-height: 20px;
-}
-
+.editing td span,
 .new-row td span {
+    position: relative;
     background-color: #fff;
     border: 1px solid #ddd;
     padding-left: 0px;
