@@ -130,11 +130,4 @@ class BookController extends Controller
         $books = Book::orderBy('id')->get();
         return view('index', compact('books'));
     }
-    // Funkcija getUpdatedTable(request)
-    // attēlo view ar atjaunoto tabulu
-    public function getUpdatedTable(Request $request)
-    {
-        $books = Book::orderBy('id')->get();
-        return view('index', ['books' => $books])->render();
-    }
 }
