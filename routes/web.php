@@ -22,7 +22,4 @@ Route::get('/upload-form', function () {
 
 Route::resource('index', BookController::class)->only(['store', 'update']);
 Route::put('/index/{id}', 'App\Http\Controllers\BookController@update')->name('book.update')->middleware('web');
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 Route::get('/get-updated-table', [BookController::class, 'getUpdatedTable']);
