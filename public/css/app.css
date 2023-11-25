@@ -44,8 +44,8 @@ td:nth-child(7) {
     text-align: left;
 }
 
-.editing td span,
-.new-row td span {
+.editing td div,
+.new-row td div {
     position: relative;
     background-color: #fff;
     border: 1px solid #ddd;

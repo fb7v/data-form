@@ -17,12 +17,12 @@
         <tbody>
             @foreach($books as $book)
                 <tr class="editable-content" data-id="{{ $book->id }}">
-                    <td><span contenteditable="false">{{ $book->title }}</span></td>
-                    <td><span contenteditable="false">{{ $book->author }}</span></td>
-                    <td><span contenteditable="false">{{ $book->genre }}</span></td>
-                    <td><span contenteditable="false">{{ $book->price }}</span></td>
-                    <td><span contenteditable="false">{{ $book->publish_date }}</span></td>
-                    <td><span contenteditable="false">{{ $book->description }}</span></td>
+                    <td><div contenteditable="false">{{ $book->title }}</div></td>
+                    <td><div contenteditable="false">{{ $book->author }}</div></td>
+                    <td><div contenteditable="false">{{ $book->genre }}</div></td>
+                    <td><div contenteditable="false">{{ $book->price }}</div></td>
+                    <td><div contenteditable="false">{{ $book->publish_date }}</div></td>
+                    <td><div contenteditable="false">{{ $book->description }}</div></td>
                     <td contenteditable="false">
                         <button class="edit-btn">Edit</button>
                         <button class="save-btn" style="display:none;">Save</button>
@@ -30,12 +30,12 @@
                 </tr>
             @endforeach
             <tr class="new-row" style="display: none;">
-                    <td><span contenteditable="true"></span></td>
-                    <td><span contenteditable="true"></span></td>
-                    <td><span contenteditable="true"></span></td>
-                    <td><span contenteditable="true"></span></td>
-                    <td><span contenteditable="true"></span></td>
-                    <td><span contenteditable="true"></span></td>
+                    <td><div contenteditable="true"></div></td>
+                    <td><div contenteditable="true"></div></td>
+                    <td><div contenteditable="true"></div></td>
+                    <td><div contenteditable="true"></div></td>
+                    <td><div contenteditable="true"></div></td>
+                    <td><div contenteditable="true"></div></td>
             <td contenteditable="false">
                 <button class="edit-btn">Edit</button>
                 <button class="save-btn" style="display:none;">Save</button>
@@ -52,6 +52,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('/js/app.js') }}"></script>
     <script>
+    $(document).ready(function () {
         $('.edit-btn').click(function() {
             var row = $(this).closest('tr');
             switchRow(row);
@@ -64,7 +65,7 @@
         var isNewRow = row.hasClass('new-row');
         var url = isNewRow ? '/index' : '/index/' + row.data('id');
 
-
+        
         var editedData = {
             _token: '{{ csrf_token() }}',
             title: row.find('td:eq(0)').text(),
@@ -82,9 +83,12 @@
             success: function(response) {
                 console.log(response);
                 // Atjauno datus pēc veiksmīgas ielādes
-                var editedData = response.editedData;
+                if (isNewRow) {
+                    var newBookId = response.id;
+                    row.attr('data-id', newBookId);
+                }
                 resetRow(row);
-                setRowValues(row, editedData);
+                setRowValues(row, response.editedData);
             },
             error: function(error) {
                 console.error(error);
@@ -95,6 +99,7 @@
             var newRow = $('.new-row');
             switchRow(newRow);
         });
+    });
 
     </script>
 @endsection

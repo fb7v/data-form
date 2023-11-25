@@ -85,7 +85,7 @@ class BookController extends Controller
             $book->update($request->all());
             
             info("Updated Book Data: " . json_encode($book));
-            return response()->json(['success' => true, 'message' => 'Book updated successfully']);
+            return response()->json(['success' => true, 'editedData' => $book, 'message' => 'Book updated successfully']);
         } catch (\Exception $e) {
             info("Exception: " . $e->getMessage());
 
