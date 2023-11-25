@@ -23,7 +23,7 @@
                     <td contenteditable="false"><span>{{ $book->price }}</span></td>
                     <td contenteditable="false"><span>{{ $book->publish_date }}</span></td>
                     <td contenteditable="false"><span>{{ $book->description }}</span></td>
-                    <td>
+                    <td contenteditable="false">
                         <button class="edit-btn">Edit</button>
                         <button class="save-btn" style="display:none;">Save</button>
                     </td>
@@ -36,7 +36,7 @@
                     <td><span></span></td>
                     <td><span></span></td>
                     <td><span></span></td>
-            <td>
+            <td contenteditable="false">
                 <button class="edit-btn">Edit</button>
                 <button class="save-btn" style="display:none;">Save</button>
             </td>
