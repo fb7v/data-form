@@ -24,7 +24,7 @@ function getRowValues(row) {
 // uzstāda rindas row vērtības values
 function setRowValues(row, values) {
     row.find('td:not(:last-child) div').each(function(index) {
-        $(this).text(values[index]); // Use an empty string if the value is undefined
+        $(this).text(values[index]);
     });
 }
 // Funkcija switchRow(row)
