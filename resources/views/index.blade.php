@@ -42,7 +42,7 @@
             </td>
             </tr>
             <tr class="new-btn-row">
-                <td colspan="7">
+                <td colspan="7" contenteditable="false">
                     <button class="new-btn">New</button>
                 </td>
             </tr>
