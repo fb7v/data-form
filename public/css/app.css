@@ -2,10 +2,41 @@ body {
     font-family: Arial, sans-serif;
 }
 
-table {
+#books-table table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+#books-table td:nth-child(1),
+    #books-table th:nth-child(1) {
+        width: 20%;
+}
+
+#books-table td:nth-child(2),
+#books-table th:nth-child(2) {
+        width: 10%;
+}
+
+#books-table td:nth-child(3),
+#books-table th:nth-child(3) {
+        width: 5%;
+}
+
+#books-table td:nth-child(4),
+#books-table th:nth-child(4) {
+        width: 4%;
+}
+
+#books-table td:nth-child(5),
+#books-table th:nth-child(5) {
+        width: 5%;
+}
+
+#books-table td:nth-child(7),
+#books-table th:nth-child(7) {
+        width: 40px;
 }
 
 table, th, td {
@@ -52,4 +83,5 @@ td:nth-child(7) {
     padding-left: 0px;
     display: block;
     min-height: 20px;
+    word-wrap: break-word;
 }
