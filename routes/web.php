@@ -15,11 +15,8 @@ use App\Http\Controllers\BookController;
 
 Route::get('/', [BookController::class, 'index']);
 Route::post('/upload', [BookController::class, 'upload']);
-
+Route::put('/index/{id}', 'App\Http\Controllers\BookController@update')->name('book.update')->middleware('web');
 Route::get('/upload-form', function () {
     return view('create');
 });
-
 Route::resource('index', BookController::class)->only(['store', 'update']);
-Route::put('/index/{id}', 'App\Http\Controllers\BookController@update')->name('book.update')->middleware('web');
-Route::get('/get-updated-table', [BookController::class, 'getUpdatedTable']);
