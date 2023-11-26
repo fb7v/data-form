@@ -16,7 +16,7 @@
         </thead>
         <tbody>
             @foreach($books as $book)
-                <tr class="editable-content" data-id="{{ $book->id }}">
+                <tr data-id="{{ $book->id }}">
                     <td><div contenteditable="false">{{ $book->title }}</div></td>
                     <td><div contenteditable="false">{{ $book->author }}</div></td>
                     <td><div contenteditable="false">{{ $book->genre }}</div></td>
@@ -53,12 +53,12 @@
     <script src="{{ asset('/js/app.js') }}"></script>
     <script>
     $(document).ready(function () {
-        $('.edit-btn').click(function() {
+        $('#books-table').on('click', '.edit-btn', function() {
             var row = $(this).closest('tr');
             switchRow(row);
         });
 
-        $('.save-btn').click(function() {
+        $('#books-table').on('click', '.save-btn', function() {
         var row = $(this).closest('tr');
 
         // Jāpārbauda vai tiek saglabāta jauna vai eksistējoša rinda
@@ -96,8 +96,23 @@
             }
         });
         });
-        $('.new-btn').click(function() {
+        $('#books-table').on('click', '.new-btn', function() {
             var newRow = $('.new-row');
+            if (newRow.length === 0) {
+                var newRow = $('<tr class="new-row">' +
+                '<td><div contenteditable="true"></div></td>' +
+                '<td><div contenteditable="true"></div></td>' +
+                '<td><div contenteditable="true"></div></td>' +
+                '<td><div contenteditable="true"></div></td>' +
+                '<td><div contenteditable="true"></div></td>' +
+                '<td><div contenteditable="true"></div></td>' +
+                '<td contenteditable="false">' +
+                '<button class="edit-btn">Edit</button>' +
+                '<button class="save-btn" style="display:none;">Save</button>' +
+                '</td>' +
+                '</tr>');
+                newRow.insertBefore('.new-btn-row');
+            }
             switchRow(newRow);
         });
     });
