@@ -117,7 +117,7 @@ class BookController extends Controller
                 'description' => $request->input('description'),
             ]);
 
-            return response()->json(['message' => 'Book created successfully', 'id' => $newBook->id], 201);
+            return response()->json(['message' => 'Book created successfully', 'editedData' => $newBook, 'id' => $newBook->id], 201);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error creating book', 'message' => $e->getMessage()], 500);
         }

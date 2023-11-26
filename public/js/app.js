@@ -14,8 +14,8 @@ function resetRow(row) {
 // iegūst rindas row vērtības
 function getRowValues(row) {
     var values = [];
-    row.find('div').each(function(index) {
-        values['td' + index] = $(this).text();
+    row.find('td:not(:last-child)').each(function(index) {
+        values[index] = $(this).find('div').text();
     });
     return values;
 }
@@ -23,8 +23,8 @@ function getRowValues(row) {
 // Funkcija setRowValues(row, values)
 // uzstāda rindas row vērtības values
 function setRowValues(row, values) {
-    row.find('td:not(:last-child) div').each(function(index) {
-        $(this).text(values[index]);
+    row.find('td:not(:last-child)').each(function(index) {
+        $(this).find('div').text(values[index]);
     });
 }
 // Funkcija switchRow(row)

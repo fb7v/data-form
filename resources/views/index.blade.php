@@ -87,8 +87,9 @@
                     var newBookId = response.id;
                     row.attr('data-id', newBookId);
                 }
-                resetRow(row);
                 setRowValues(row, response.editedData);
+                row.data('initial-values', getRowValues(row));
+                resetRow(row);
             },
             error: function(error) {
                 console.error(error);
