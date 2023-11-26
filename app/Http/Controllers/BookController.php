@@ -67,12 +67,12 @@ class BookController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|string',
-            'author' => 'required|string',
-            'genre' => 'required|string',
+            'title' => 'required|string|max:150',
+            'author' => 'required|string|max:150',
+            'genre' => 'required|string|max:30',
             'price' => 'required|numeric',
             'publish_date' => 'required|date',
-            'description' => 'required|string',
+            'description' => 'required|string|max:300',
         ]);
 
         try {
@@ -98,12 +98,12 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string',
-            'author' => 'required|string',
-            'genre' => 'required|string',
+            'title' => 'required|string|max:150',
+            'author' => 'required|string|max:150',
+            'genre' => 'required|string|max:30',
             'price' => 'required|numeric',
             'publish_date' => 'required|date',
-            'description' => 'required|string',
+            'description' => 'required|string|max:300',
         ]);
 
         try {
