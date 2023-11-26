@@ -29,18 +29,6 @@
                     </td>
                 </tr>
             @endforeach
-            <tr class="new-row" style="display: none;">
-                    <td><div contenteditable="true"></div></td>
-                    <td><div contenteditable="true"></div></td>
-                    <td><div contenteditable="true"></div></td>
-                    <td><div contenteditable="true"></div></td>
-                    <td><div contenteditable="true"></div></td>
-                    <td><div contenteditable="true"></div></td>
-            <td contenteditable="false">
-                <button class="edit-btn">Edit</button>
-                <button class="save-btn" style="display:none;">Save</button>
-            </td>
-            </tr>
             <tr class="new-btn-row">
                 <td colspan="7" contenteditable="false">
                     <button class="new-btn">New</button>
